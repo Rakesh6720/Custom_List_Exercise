@@ -15,8 +15,9 @@ namespace CustomList
         public RakList()
         {
             count = 0;
-            data = new T [5];
             capacity = 5;
+            data = new T [capacity];
+            
         }
 
         public void Add(T value)
