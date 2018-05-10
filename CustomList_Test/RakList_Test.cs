@@ -67,7 +67,34 @@ namespace CustomList_Test
 
             //Assert
             Assert.AreEqual(expectedValue, actualValue);
+        }
 
+        [TestMethod]
+        public void Remove_NonExistingItem(int num)
+        {
+            //Arrange
+            RakList<int> list = new RakList<int>() { 0, 1, 2, 3, 4 };
+            int actualValue = 6;
+            //Act
+            list.Remove(actualValue);
+
+            //Assert
+            Assert.ThrowsException(IndexOutOfRangeException);
+        }
+
+        [TestMethod]
+        public void Remove_MoreThanOneItemExists(string value)
+        {
+            //Arrange
+            RakList<string> list = new RakList<string>() { "alpha", "bravo", "charlie", "delta", "echo", "alpha" };
+            string expectedValue = "alpha";
+            string actualValue = list[4];
+
+            //Act
+            list.Remove(value);
+
+            //Assert
+            Assert.AreEqual(expectedValue, actualValue);
         }
     }
 }
