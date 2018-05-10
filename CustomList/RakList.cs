@@ -21,7 +21,12 @@ namespace CustomList
 
         public void Add(T value)
         {
-            T[] array1 = new T[] { value };
+            
+            
+        }
+
+        public void Remove(T value)
+        {
             
         }
     }

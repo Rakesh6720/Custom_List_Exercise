@@ -52,5 +52,22 @@ namespace CustomList_Test
             //Assert
             Assert.ThrowsException(IndexOutOfRangeException);
         }
+
+        [TestMethod]
+        public void Remove_ItemFromEmptyList(string charlie)
+        {
+            //Arrange
+            RakList<string> list = new RakList<string>();
+            string expectedValue = charlie;
+            string actualValue = list[0];
+
+
+            //Act
+            list.Remove(actualValue);
+
+            //Assert
+            Assert.AreEqual(expectedValue, actualValue);
+
+        }
     }
 }
