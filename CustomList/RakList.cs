@@ -86,8 +86,43 @@ namespace CustomList
             
         }
 
+       public bool CheckItem(T value)
+        {
+            //Check if item exists
+            bool isTrue = false;
+
+            for (int i = 0; i < count; i++)
+            {
+                if (array[i] == value)
+                {
+                    isTrue = true;
+                    
+                }
+                else
+                {
+                   isTrue = false;
+                    
+                }
+            }
+            return isTrue;
+        }
         public void Remove(T value)
         {
+
+            bool isTrue = CheckItem(value);
+
+            if (isTrue == true)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    if (array[i] == value)
+                    {
+
+                    }
+                }
+            }
+
+
 
         }
     }
