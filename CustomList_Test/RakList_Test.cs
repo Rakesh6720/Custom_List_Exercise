@@ -222,20 +222,73 @@ namespace CustomList_Test
             string newString = " ";
 
             //Act
-           string testString =  list.ConvertToString_ListEmpty();
+            string testString = list.ConvertToString_ListEmpty();
 
             //Assert
             Assert.AreEqual(newString, testString);
         }
 
         [TestMethod]
-        public void Join()
+        public void Join_TwoCollections_ReturnJointCollection(int[] randomList)
         {
             //Arrange
-
+            RakList<int> list1 = new RakList<int>() { 1, 2, 3, 4 };
+            RakList<int> list2 = new RakList<int>() { 5, 6, 7, 8 };
+            RakList<int> expectedResult = new RakList<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
             //Act
+            list1.Join(list2);
+            int newCapacity = list1.Count + list2.Count;
+            int[] newArray = new int[newCapacity];
 
             //Assert
+            Assert.AreEqual(expectedResult, newArray);
+        }
+
+        [TestMethod]
+        public void Join_CheckMatchingIndexFromList1_ReturnMatchingValue(int[] randomList)
+        {
+            //Arrange
+            RakList<int> list1 = new RakList<int>() { 1, 2, 3, 4 };
+            RakList<int> list2 = new RakList<int>() { 5, 6, 7, 8 };
+            RakList<int> expectedResult = new RakList<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
+            //Act
+            list1.Join(list2);
+            int newCapacity = list1.Count + list2.Count;
+            int[] newArray = new int[newCapacity];
+
+            //Assert
+            Assert.AreEqual(list1[1], expectedResult[1]);
+        }
+
+        [TestMethod]
+        public void Join_CheckMatchingIndexFromList2_ReturnMatchingValue(int[] randomList)
+        {
+            //Arrange
+            RakList<int> list1 = new RakList<int>() { 1, 2, 3, 4 };
+            RakList<int> list2 = new RakList<int>() { 5, 6, 7, 8 };
+            RakList<int> expectedResult = new RakList<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
+            //Act
+            list1.Join(list2);
+            int newCapacity = list1.Count + list2.Count;
+            int[] newArray = new int[newCapacity];
+
+            //Assert
+            Assert.AreEqual(list2[1], expectedResult[list1.Count + 2]);
+        }
+        [TestMethod]
+        public void Join_EmptyList_CountRemainsSame(int [] randomList)
+        {
+            //Arrange
+            RakList<int> list1 = new RakList<int>() { 1, 2, 3, 4 };
+            RakList<int> list2 = new RakList<int>();
+            
+            //Act
+            list1.Join(list2);
+            int newCapacity = list1.Count + list2.Count;
+            int[] newArray = new int[newCapacity];
+
+            //Assert
+            Assert.AreEqual(list1.Count, newArray.Length);
         }
     }
 }
