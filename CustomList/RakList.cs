@@ -49,6 +49,10 @@ namespace CustomList
         public IEnumerator<T> GetEnumerator()
         {
             // how to enumerator
+           for (int index = 0; array.Length < count; index++)
+            {
+                yield return array[index];
+            } 
         }
 
         public bool CheckCapacity(int count, int capacity)
