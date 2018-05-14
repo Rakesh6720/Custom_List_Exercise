@@ -108,22 +108,30 @@ namespace CustomList
         }
         public void Remove(T value)
         {
-
             bool isTrue = CheckItem(value);
-
             if (isTrue == true)
             {
                 for (int i = 0; i < count; i++)
                 {
                     if (array[i] == value)
                     {
-
+                        array[i] = array[i + 1];
+                        count--;
+                        int cycle = 0;
+                        int nextIndex = i + 1;
+                        while (cycle < count)
+                        {
+                            array[nextIndex] = array[nextIndex++];
+                            cycle++;
+                        }
+                        return;
                     }
                 }
             }
-
-
-
+            else
+            {
+                Console.WriteLine(value + " cannot be found in List.");
+            }
         }
     }
 }
