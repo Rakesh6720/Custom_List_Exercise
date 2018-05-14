@@ -15,23 +15,23 @@ namespace CustomList_Test
             //Arrange
             RakList<int> list = new RakList<int>();
             int expectedResult = 5;
-            
+
             //Act
             list.Add(5);
             int actualResult = list[0];
 
             //Assert
-            Assert.AreEqual(expectedResult, actualResult);   
+            Assert.AreEqual(expectedResult, actualResult);
         }
 
         [TestMethod]
         public void Add_AddItemToOccupupiedList()
         {
             //Arrange
-            RakList<string> list = new RakList<string>() { "alpha", "bravo", "charlie", "delta"};
+            RakList<string> list = new RakList<string>() { "alpha", "bravo", "charlie", "delta" };
 
             string input = "echo";
-            
+
             //Act
             list.Add(input);
             string expectedResult = input;
@@ -41,7 +41,7 @@ namespace CustomList_Test
         }
 
         [TestMethod]
-        
+
         public void Add_AddItemToFullList_AddToNewIndex()
         {
             //Arrange
@@ -61,12 +61,12 @@ namespace CustomList_Test
             //Arrange
             RakList<int> list = new RakList<int>() { 0, 1, 2, 3, 4 };
             int newInput = 5;
-            
+
             //Act
             list.Add(newInput);
 
             //Assert
-            Assert.AreEqual(list.Count, 10); 
+            Assert.AreEqual(list.Count, 10);
         }
 
         [TestMethod]
@@ -81,7 +81,7 @@ namespace CustomList_Test
             string actualValue = list[0];
 
             //Assert
-            
+
         }
 
         [TestMethod]
@@ -90,12 +90,12 @@ namespace CustomList_Test
             //Arrange
             RakList<string> list = new RakList<string>() { "alpha", "bravo", "charlie", "delta", "echo", "alpha" };
             string expectedValue = "alpha";
-            
+
 
             //Act
             list.Remove("alpha");
             string actualValue = list[4];
-            
+
             //Assert
             Assert.AreEqual(expectedValue, actualValue);
             int newCapacity = list.Count - 1;
@@ -136,9 +136,9 @@ namespace CustomList_Test
         }
 
         [TestMethod]
-        
+
         public void Remove_NoItemExists_ReturnFalse()
-        { 
+        {
             //Arrange
             RakList<int> list = new RakList<int> { 0, 1, 2, 3, 4 };
             int input = 5;
@@ -174,7 +174,7 @@ namespace CustomList_Test
             //Arrange
             RakList<int> list = new RakList<int> { 0, 1, 2, 3, 4 };
             int input = 2;
-            
+
             //Act
             list.Remove(input);
             int expectedValue = 4;
@@ -183,7 +183,7 @@ namespace CustomList_Test
             Assert.AreEqual(expectedValue, list[3]);
         }
 
-        [TestMethod] 
+        [TestMethod]
         public void Remove_ItemExists_CheckCount()
         {
             //Arrange
@@ -197,6 +197,45 @@ namespace CustomList_Test
 
             //Assert
             Assert.AreEqual(expectedValue, list.Count);
+        }
+
+        [TestMethod]
+        public string ConvertToString()
+        {
+            //Arrange
+            RakList<string> list = new RakList<string>() { "alpha", "bravo", "charlie", "delta" };
+            string newString = "alpha bravo charlie delta";
+
+            //Act
+            string testString = list.ConvertToString();
+
+            //Assert
+
+            Assert.AreEqual(newString, testString);
+        }
+
+        [TestMethod]
+        public string ConvertToString_ListEmpty()
+        {
+            //Arrange
+            RakList<string> list = new RakList<string>();
+            string newString = " ";
+
+            //Act
+           string testString =  list.ConvertToString_ListEmpty();
+
+            //Assert
+            Assert.AreEqual(newString, testString);
+        }
+
+        [TestMethod]
+        public void Join()
+        {
+            //Arrange
+
+            //Act
+
+            //Assert
         }
     }
 }
