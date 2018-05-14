@@ -137,5 +137,30 @@ namespace CustomList
                 Console.WriteLine(value + " cannot be found in List.");
             }
         }
+
+        public override string ToString()
+        {
+            string newString = " ";
+
+            for (int i = 0; i<count; i++)
+            {
+                newString += array[i];
+            }
+            return newString;
+        }
+
+        public static RakList<T> operator + (RakList<T> list1, RakList<T> list2)
+        {
+            RakList<T> jointList = new RakList<T>();
+            foreach (T item in list1)
+            {
+                jointList.Add(item);
+            }
+            foreach(T item in list2)
+            {
+                jointList.Add(item);
+            }
+            return jointList;
+        }
     }
 }

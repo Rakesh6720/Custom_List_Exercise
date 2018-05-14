@@ -1,0 +1,2 @@
+C:\Users\rbaru\OneDrive\Desktop\DevCode_Excercises\Custom_List_Exercise\Custom_List_Exercise\CustomList\obj\Debug\CustomList.csprojAssemblyReference.cache
+C:\Users\rbaru\OneDrive\Desktop\DevCode_Excercises\Custom_List_Exercise\Custom_List_Exercise\CustomList\obj\Debug\CustomList.csproj.CoreCompileInputs.cache
