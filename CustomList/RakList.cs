@@ -49,7 +49,7 @@ namespace CustomList
         public IEnumerator<T> GetEnumerator()
         {
             // how to enumerator
-           for (int index = 0; array.Length < count; index++)
+           for (int index = 0; index < count; index++)
             {
                 yield return array[index];
             } 
@@ -102,7 +102,7 @@ namespace CustomList
                 if (array[i].Equals  (value))
                 {
                     isTrue = true;
-                    
+                    return isTrue;
                 }
                 else
                 {
@@ -117,13 +117,14 @@ namespace CustomList
             bool isTrue = CheckItem(value);
             if (isTrue == true)
             {
+                int cycle = 0;
                 for (int i = 0; i < count; i++)
                 {
                     if (array[i].Equals (value))
                     {
                         array[i] = array[i + 1];
                         count--;
-                        int cycle = 0;
+                        
                         int nextIndex = i + 1;
                         while (cycle < count)
                         {

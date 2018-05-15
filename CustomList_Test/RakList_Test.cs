@@ -58,7 +58,7 @@ namespace CustomList_Test
         }
         [TestMethod]
 
-        public void Add_AddItemToFullList_DoubleCount()
+        public void Add_AddItemToFullList_IncreaseCount()
         {
             //Arrange
             RakList<int> list = new RakList<int>() { 0, 1, 2, 3, 4 };
@@ -68,7 +68,7 @@ namespace CustomList_Test
             list.Add(newInput);
 
             //Assert
-            Assert.AreEqual(list.Count, 10);
+            Assert.AreEqual(list.Count, 6);
         }
 
         [TestMethod]
@@ -241,9 +241,11 @@ namespace CustomList_Test
             //Act
             RakList<int> newList = new RakList<int>();
             newList = list1 + list2;
+            int actual = newList[3];
+            
 
             //Assert
-            Assert.AreEqual(expectedResult, newList);
+            Assert.AreEqual(expectedResult[3], actual );
         }
 
         [TestMethod]
