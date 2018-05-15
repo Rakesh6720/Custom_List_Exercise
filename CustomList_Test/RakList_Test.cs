@@ -48,13 +48,15 @@ namespace CustomList_Test
             RakList<int> list = new RakList<int>() { 0, 1, 2, 3, 4 };
             int newInput = 5;
             int actualResult = newInput;
+            
 
             //Act
             list.Add(newInput);
-
+         
             //Assert
-            Assert.AreEqual(newInput, list[6]); //input will be found at newList[0];
+            Assert.AreEqual(newInput, list[5]); //input will be found at newList[0];
         }
+        [TestMethod]
 
         public void Add_AddItemToFullList_DoubleCount()
         {
@@ -136,7 +138,6 @@ namespace CustomList_Test
         }
 
         [TestMethod]
-
         public void Remove_NoItemExists_ReturnFalse()
         {
             //Arrange
@@ -200,11 +201,11 @@ namespace CustomList_Test
         }
 
         [TestMethod]
-        public override string ToString()
+        public void ToString_CombineToSingle_MatchStrings()
         {
             //Arrange
             RakList<string> list = new RakList<string>() { "alpha", "bravo", "charlie", "delta" };
-            string newString = "alpha, bravo,  charlie, and delta"; 
+            string newString = "alpha, bravo,  charlie, and delta";
 
             //Act
             string testString = list.ToString();
@@ -212,10 +213,11 @@ namespace CustomList_Test
             //Assert
 
             Assert.AreEqual(newString, testString);
+            
         }
 
         [TestMethod]
-        public override string ToString_ListEmpty()
+        public void ToString_ListEmpty()
         {
             //Arrange
             RakList<string> list = new RakList<string>();
@@ -226,25 +228,26 @@ namespace CustomList_Test
 
             //Assert
             Assert.AreEqual(newString, testString);
+            
         }
 
         [TestMethod]
-        public RakList<string> operator + (RakList<string> list1, RakList<string> list2)
+        public void OverloadOperator_CombineList_CheckContentsNewList()
         {
             //Arrange
             RakList<int> list1 = new RakList<int>() { 1, 2, 3, 4 };
             RakList<int> list2 = new RakList<int>() { 5, 6, 7, 8 };
             RakList<int> expectedResult = new RakList<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
             //Act
-            RakList<string> newList = new RakList<string>();
-            newList = list1 + list2;            
+            RakList<int> newList = new RakList<int>();
+            newList = list1 + list2;
 
             //Assert
             Assert.AreEqual(expectedResult, newList);
         }
 
         [TestMethod]
-        public RakList<string> operator + (RakList<string> list1, RakList<string> list2)
+        public void OverloadOperator_CombineLists_CheckMatchingIndex()
         {
             //Arrange
             RakList<int> list1 = new RakList<int>() { 1, 2, 3, 4 };
@@ -252,7 +255,7 @@ namespace CustomList_Test
             RakList<int> expectedResult = new RakList<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
 
             //Act
-            RakList<string> newList = new RakList<string>();
+            RakList<int> newList = new RakList<int>();
             newList = list1 + list2;
 
             //Assert
@@ -260,7 +263,7 @@ namespace CustomList_Test
         }
 
         [TestMethod]
-        public RakList<string> operator + (RakList<string> list1, RakList<string> list2)
+        public void OverloadOperator_CombineLists_CompareCounts()
         {
             //Arrange
             RakList<int> list1 = new RakList<int>() { 1, 2, 3, 4 };
@@ -268,26 +271,26 @@ namespace CustomList_Test
             RakList<int> expectedResult = new RakList<int>() { 1, 2, 3, 4, 5, 6, 7, 8 };
 
             //Act
-            RakList<string> newList = new RakList<string>();
+            RakList<int> newList = new RakList<int>();
             newList = list1 + list2;
 
             //Assert
             Assert.AreEqual(list2[1], expectedResult[list1.Count + 2]);
         }
+
         [TestMethod]
-        public RakList<string> operator + (RakList<string> list1, RakList<string> list2)
+        public void OverloadOpeator_CombineLists_CompareListCounts()
         {
             //Arrange
             RakList<int> list1 = new RakList<int>() { 1, 2, 3, 4 };
             RakList<int> list2 = new RakList<int>();
 
             //Act
-            RakList<string> newList = new RakList<string>();
+            RakList<int> newList = new RakList<int>();
             newList = list1 + list2;
 
             //Assert
-            Assert.AreEqual(list1.Count, newList.Length);
+            Assert.AreEqual(list1.Count, newList.Count);
         }
     }
 }
-S

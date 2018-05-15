@@ -57,7 +57,7 @@ namespace CustomList
 
         public bool CheckCapacity(int count, int capacity)
         {
-            if (count > capacity)
+            if (count >= capacity)
             {
                 return false;
             }
@@ -73,19 +73,21 @@ namespace CustomList
             if (trueFalse == true)
             {
                 array[count] = value;
+                count++;
             }
             else
             {
                 capacity = capacity * 2;
                 T [] tempArray = new T [capacity];
 
-               for (int i = 0; i<=count; i++)
+               for (int i = 0; i<count; i++)
                 {
                     tempArray[i] = array[i];
                 }
 
                 array = tempArray;
-                
+                array[count] = value;
+                count++;
             }
             
         }
@@ -97,7 +99,7 @@ namespace CustomList
 
             for (int i = 0; i < count; i++)
             {
-                if (array[i] == value)
+                if (array[i].Equals  (value))
                 {
                     isTrue = true;
                     
@@ -117,7 +119,7 @@ namespace CustomList
             {
                 for (int i = 0; i < count; i++)
                 {
-                    if (array[i] == value)
+                    if (array[i].Equals (value))
                     {
                         array[i] = array[i + 1];
                         count--;

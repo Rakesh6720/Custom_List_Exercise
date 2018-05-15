@@ -1,2 +1,7 @@
 C:\Users\rbaru\OneDrive\Desktop\DevCode_Excercises\Custom_List_Exercise\Custom_List_Exercise\CustomList\obj\Debug\CustomList.csprojAssemblyReference.cache
 C:\Users\rbaru\OneDrive\Desktop\DevCode_Excercises\Custom_List_Exercise\Custom_List_Exercise\CustomList\obj\Debug\CustomList.csproj.CoreCompileInputs.cache
+C:\Users\rbaru\OneDrive\Desktop\DevCode_Excercises\Custom_List_Exercise\Custom_List_Exercise\CustomList\bin\Debug\CustomList.exe.config
+C:\Users\rbaru\OneDrive\Desktop\DevCode_Excercises\Custom_List_Exercise\Custom_List_Exercise\CustomList\bin\Debug\CustomList.exe
+C:\Users\rbaru\OneDrive\Desktop\DevCode_Excercises\Custom_List_Exercise\Custom_List_Exercise\CustomList\bin\Debug\CustomList.pdb
+C:\Users\rbaru\OneDrive\Desktop\DevCode_Excercises\Custom_List_Exercise\Custom_List_Exercise\CustomList\obj\Debug\CustomList.exe
+C:\Users\rbaru\OneDrive\Desktop\DevCode_Excercises\Custom_List_Exercise\Custom_List_Exercise\CustomList\obj\Debug\CustomList.pdb
