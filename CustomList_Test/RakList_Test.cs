@@ -277,7 +277,7 @@ namespace CustomList_Test
             newList = list1 + list2;
 
             //Assert
-            Assert.AreEqual(list2[1], expectedResult[list1.Count + 2]);
+            Assert.AreEqual(list2[1], expectedResult[list1.Count + 1]);
         }
 
         [TestMethod]
@@ -293,6 +293,19 @@ namespace CustomList_Test
 
             //Assert
             Assert.AreEqual(list1.Count, newList.Count);
+        }
+        public void Subtract_OneListGreater_GetDifference()
+        {
+            //Arrange
+            RakList<int> list1 = new RakList<int>() { 1, 2, 3, 4, 5 };
+            RakList<int> list2 = new RakList<int>() { 1, 2, 3 };
+
+            //Act
+            RakList<int> newList = new RakList<int>();
+            newList = list1 - list2;
+
+            //Assert
+            Assert.AreEqual(newList[0], list1[3]);
         }
     }
 }

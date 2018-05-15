@@ -165,5 +165,31 @@ namespace CustomList
             }
             return jointList;
         }
+        public static RakList<T> operator - (RakList<T> list1, RakList<T> list2)
+        {
+            RakList<T> newList = new RakList<T>();
+            newList = list1;
+             for (int i = 0; i < list2.Count; i++)
+                {
+                    for (int j = 0; j < list1.Count; j++)
+                    {
+                        if (list2[i].Equals (list1[j]))
+                        {
+                            newList.Remove(list1[j]);
+                        }
+                    }
+                }
+                return newList;
+        }
+        public static RakList<T> Zipper(RakList<T> list1, RakList<T> list2)
+        {
+            foreach (T item in list2)
+            {
+                list1.Add(item);
+            }
+            return list1;
+        }
+        
     }
+
 }
