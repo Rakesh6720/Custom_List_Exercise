@@ -72,8 +72,8 @@ namespace CustomList_Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(IndexOutOfRangeException))]
-        public void Remove_ItemFromEmptyList()
+        
+        public void Remove_ItemFromEmptyList_ReturnNull()
         {
             //Arrange
             RakList<string> list = new RakList<string>();
@@ -83,6 +83,7 @@ namespace CustomList_Test
             string actualValue = list[0];
 
             //Assert
+            Assert.AreEqual(null, actualValue);
 
         }
 
@@ -91,19 +92,15 @@ namespace CustomList_Test
         {
             //Arrange
             RakList<string> list = new RakList<string>() { "alpha", "bravo", "charlie", "delta", "echo", "alpha" };
-            string expectedValue = "alpha";
+            int expectedValue = 4;
 
 
             //Act
             list.Remove("alpha");
-            string actualValue = list[4];
-
-            //Assert
-            Assert.AreEqual(expectedValue, actualValue);
-            int newCapacity = list.Count - 1;
+            
 
             //test that count goes down
-            Assert.AreEqual(newCapacity, list.Count);
+            Assert.AreEqual(expectedValue, list.Count);
         }
 
         [TestMethod]
@@ -134,7 +131,7 @@ namespace CustomList_Test
             list.Remove(input);
 
             //Asser2
-            Assert.AreEqual(0, list[3]);
+            Assert.AreEqual(3, list[3]);
         }
 
         [TestMethod]
@@ -154,7 +151,7 @@ namespace CustomList_Test
         }
 
         [TestMethod]
-        public void Remove_ItemExists_ReturnTrue()
+        public void CheckItem_ItemExists_ReturnTrue()
         {
             //Arrange
             RakList<int> list = new RakList<int> { 0, 1, 2, 3, 4 };
@@ -162,8 +159,7 @@ namespace CustomList_Test
             bool foundItem;
 
             //Act
-            list.Remove(input);
-            foundItem = true;
+            foundItem = list.CheckItem(input);
 
             //Assert
             Assert.IsTrue(foundItem);
@@ -178,10 +174,10 @@ namespace CustomList_Test
 
             //Act
             list.Remove(input);
-            int expectedValue = 4;
+            int expectedValue = 3;
 
             //Assert
-            Assert.AreEqual(expectedValue, list[3]);
+            Assert.AreEqual(expectedValue, list[2]);
         }
 
         [TestMethod]
@@ -193,7 +189,7 @@ namespace CustomList_Test
 
             //Act
             list.Remove(input);
-            int expectedValue = list.Count - 1;
+            int expectedValue = 4;
 
 
             //Assert
@@ -205,7 +201,7 @@ namespace CustomList_Test
         {
             //Arrange
             RakList<string> list = new RakList<string>() { "alpha", "bravo", "charlie", "delta" };
-            string newString = "alpha, bravo,  charlie, and delta";
+            string newString = "alpha, bravo, charlie, and delta";
 
             //Act
             string testString = list.ToString();

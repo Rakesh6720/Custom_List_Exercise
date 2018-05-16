@@ -117,21 +117,20 @@ namespace CustomList
             bool isTrue = CheckItem(value);
             if (isTrue == true)
             {
-                int cycle = 0;
-                for (int i = 0; i < count; i++)
+                
+                for (int i = 0; i <= count; i++)
                 {
                     if (array[i].Equals (value))
                     {
                         array[i] = array[i + 1];
                         count--;
-                        
-                        int nextIndex = i + 1;
-                        while (cycle < count)
+                    }
+                    else
+                    {
+                        if (i == count)
                         {
-                            array[nextIndex] = array[nextIndex++];
-                            cycle++;
+                            array[i] = default(T);
                         }
-                        return;
                     }
                 }
             }
@@ -143,11 +142,22 @@ namespace CustomList
 
         public override string ToString()
         {
-            string newString = " ";
+            string newString = "";
 
             for (int i = 0; i<count; i++)
             {
-                newString += array[i];
+                if (i == 0)
+                {
+                    newString += array[i];
+                }
+                else if (i == count-1)
+                {
+                    newString += $", and {array[i]}";
+                }
+                else
+                {
+                    newString += $", {array[i]}";
+                }
             }
             return newString;
         }
